@@ -4,7 +4,13 @@
   "description": "nodejs examples",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start-graphql": "nodemon graphql-app.js",
+    "start-sequelize": "nodemon -r dotenv/config sequelize-app.js",
+    "db:create": "sequelize-cli db:create",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:g:migration": "sequelize-cli migration:generate --name",
+    "db:g:seed": "sequelize-cli seed:generate --name",
+    "db:seeds": "sequelize-cli db:seed:all"
   },
   "keywords": [
     "nodejs"
@@ -12,9 +18,15 @@
   "author": "gaurav10610@gmail.com",
   "license": "UNLICENCED",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
-    "graphql": "^15.5.1"
+    "graphql": "^15.5.1",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
